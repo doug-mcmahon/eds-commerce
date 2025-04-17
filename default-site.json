@@ -10,8 +10,8 @@
   },
   "content": {
     "source": {
-      "url": "{CONTENT_SOURCE}",
-      "type": "onedrive"
+      "url": "https://drive.google.com/drive/folders/11eLx1guEJiIYV4pQs7VbmH7s7E-cOupG",
+      "type": "googledrive"
     }
   },
   "folders": {
