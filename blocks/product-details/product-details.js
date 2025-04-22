@@ -57,6 +57,7 @@ export default async function decorate(block) {
         <div class="product-details__attributes"></div>
       </div>
     </div>
+    
   `);
 
   const $alert = fragment.querySelector('.product-details__alert');
@@ -201,6 +202,14 @@ export default async function decorate(block) {
             const wishlist = await import('../../scripts/wishlist/api.js');
             await wishlist.addToWishlist(values.sku);
           }
+
+          fbq('track', 'AddToWishlist', {
+            content_type: 'product',
+            content_ids: [values.sku],
+            value: values.price,
+            currency: 'USD'
+          });
+
         } catch (error) {
           console.error(error);
         } finally {
