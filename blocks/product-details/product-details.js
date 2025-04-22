@@ -207,7 +207,7 @@ export default async function decorate(block) {
               value: values.price,
               currency: 'USD'
             });
-            console.log(values.sku);
+            console.log("HERE"+values.sku);
           }
 
 
