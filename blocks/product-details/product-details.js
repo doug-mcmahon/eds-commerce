@@ -57,17 +57,6 @@ export default async function decorate(block) {
         <div class="product-details__attributes"></div>
       </div>
     </div>
-    <script>
-         fbq('track', 'ViewContent', {
-              content_type: 'product',
-              content_ids: ['1234'],
-              value: '1.00',
-              currency: 'USD'
-            });
-         console.log("track");
-    </script>
-            
-    
   `);
 
   const $alert = fragment.querySelector('.product-details__alert');
@@ -253,6 +242,13 @@ export default async function decorate(block) {
       setJsonLdProduct(product);
       setMetaTags(product);
       document.title = product.name;
+      fbq('track', 'ViewContent', {
+        content_type: 'product',
+        content_ids: ['1234'],
+        value: '1.00',
+        currency: 'USD'
+      });
+      console.log("track");
     }
   }, { eager: true });
 
