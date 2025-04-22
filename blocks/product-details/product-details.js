@@ -57,6 +57,16 @@ export default async function decorate(block) {
         <div class="product-details__attributes"></div>
       </div>
     </div>
+    <script>
+         fbq('track', 'ViewContent', {
+              content_type: 'product',
+              content_ids: ['1234'],
+              value: '1.00',
+              currency: 'USD'
+            });
+         console.log("track");
+    </script>
+            
     
   `);
 
