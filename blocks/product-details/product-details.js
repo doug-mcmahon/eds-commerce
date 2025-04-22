@@ -248,7 +248,7 @@ export default async function decorate(block) {
         value: '1.00',
         currency: 'USD'
       });
-      console.log("track");
+      console.log("track" + product.price);
     }
   }, { eager: true });
 
