@@ -201,15 +201,16 @@ export default async function decorate(block) {
           if (values?.sku) {
             const wishlist = await import('../../scripts/wishlist/api.js');
             await wishlist.addToWishlist(values.sku);
+            fbq('track', 'AddToWishlist', {
+              content_type: 'product',
+              content_ids: [values.sku],
+              value: values.price,
+              currency: 'USD'
+            });
+            console.log(values.sku);
           }
 
-          fbq('track', 'AddToWishlist', {
-            content_type: 'product',
-            content_ids: [values.sku],
-            value: values.price,
-            currency: 'USD'
-          });
-          console.log(values.sku);
+
 
         } catch (error) {
           console.error(error);
