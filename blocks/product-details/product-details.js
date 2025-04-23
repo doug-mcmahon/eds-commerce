@@ -249,6 +249,7 @@ export default async function decorate(block) {
       }
 
       document.title = product.name;
+      console.log(JSON.stringify(product));
 
       const viewContent = "fbq('track', 'ViewContent', {content_type: 'product', content_ids: ['"+product.sku+"'], " +
         "value: " + product.prices.final.amount + ", currency: '" + product.prices.final.currency + "'});"
@@ -402,7 +403,7 @@ function createScriptTag(textContent, onload, onerror) {
   const script = document.createElement('script');
   script.textContent = textContent;
   script.type = 'text/javascript';
-  script.async = false; // To ensure scripts are executed in order
+  script.async = false;
 
   if (onload) {
     script.onload = onload;
@@ -412,5 +413,5 @@ function createScriptTag(textContent, onload, onerror) {
     script.onerror = onerror;
   }
 
-  document.head.appendChild(script); // Or document.body, depending on your needs
+  document.head.appendChild(script);
 }
