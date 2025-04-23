@@ -256,6 +256,7 @@ export default async function decorate(block) {
         currency: 'USD'
       });
       console.log("track " + product.sku);
+      console.log("track price " + product.prices.final.amount);
       console.log("track2 " + JSON.stringify(product));
     }
   }, { eager: true });
@@ -276,8 +277,8 @@ async function setJsonLdProduct(product) {
     attributes,
   } = product;
   const amount = priceRange?.minimum?.final?.amount || price?.final?.amount;
-  console.log("amount " + amount);
   const brand = attributes.find((attr) => attr.name === 'brand');
+
 
   // get variants
   const { data } = await pdpApi.fetchGraphQl(`
