@@ -252,7 +252,7 @@ export default async function decorate(block) {
       console.log(JSON.stringify(product));
 
       const viewContent = "fbq('track', 'ViewContent', {content_type: 'product', content_ids: ['" + product.sku + "'], " +
-        "content_name: '" + product.name + "', value: " + product.prices.final.amount + ", currency: '" + product.prices.final.currency + "'});"
+        "content_name: '" + product.name + "', value: " + product.prices.final.amount + ", currency: '" + product.prices.final.currency + "'}); alert('t');"
 
       createScriptTag(
         viewContent,
