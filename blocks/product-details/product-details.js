@@ -252,12 +252,9 @@ export default async function decorate(block) {
       fbq('track', 'ViewContent', {
         content_type: 'product',
         content_ids: [product.sku],
-        value: '1.00',
-        currency: 'USD'
+        value: product.prices.final.amount,
+        currency: product.prices.final.currency
       });
-      console.log("track " + product.sku);
-      console.log("track price " + product.prices.final.amount);
-      console.log("track2 " + JSON.stringify(product));
     }
   }, { eager: true });
 
