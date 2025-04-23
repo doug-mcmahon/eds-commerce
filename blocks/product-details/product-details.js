@@ -57,6 +57,14 @@ export default async function decorate(block) {
         <div class="product-details__attributes"></div>
       </div>
     </div>
+    <script>
+    fbq('track', 'ViewContent', {
+        content_type: 'product',
+        content_ids: [product.sku],
+        value: product.prices.final.amount,
+        currency: product.prices.final.currency
+      });
+</script>
   `);
 
   const $alert = fragment.querySelector('.product-details__alert');
