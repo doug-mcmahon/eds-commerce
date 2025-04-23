@@ -242,7 +242,7 @@ export default async function decorate(block) {
       setJsonLdProduct(product);
       setMetaTags(product);
 
-      const price = product.prices.final.minimumAmount ?? product.prices.final.amount;
+      const price = product.price.final.minimumAmount ?? product.price.final.amount;
       document.title = product.name;
       fbq('track', 'ViewContent', {
         content_type: 'product',
