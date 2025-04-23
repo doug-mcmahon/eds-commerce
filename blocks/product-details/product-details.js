@@ -251,7 +251,7 @@ export default async function decorate(block) {
         currency: 'USD'
       });
       console.log("track" + product.sku);
-      console.log("track2" + price.value);
+      console.log("track2" + JSON.stringify(product));
     }
   }, { eager: true });
 
