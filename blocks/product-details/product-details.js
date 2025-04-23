@@ -249,8 +249,8 @@ export default async function decorate(block) {
         value: '1.00',
         currency: 'USD'
       });
-      console.log("track" + product.priceRange?.minimum?.final?.amount || product.price?.final?.amount);
-      console.log("track2" + product.name + " " + product.price.final.amount.value);
+      console.log("track" + product.priceRange?.minimum?.final?.amount || product.price?.final?.amount?.value);
+      console.log("track2" + product.name);
     }
   }, { eager: true });
 
