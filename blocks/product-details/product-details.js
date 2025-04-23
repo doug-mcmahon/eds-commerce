@@ -241,6 +241,9 @@ export default async function decorate(block) {
     if (product) {
       setJsonLdProduct(product);
       setMetaTags(product);
+
+      const values = pdpApi.getProductConfigurationValues();
+
       document.title = product.name;
       fbq('track', 'ViewContent', {
         content_type: 'product',
@@ -248,7 +251,7 @@ export default async function decorate(block) {
         value: '1.00',
         currency: 'USD'
       });
-      console.log("track" + $price);
+      console.log("track" + values.price);
     }
   }, { eager: true });
 
