@@ -242,8 +242,8 @@ export default async function decorate(block) {
       setJsonLdProduct(product);
       setMetaTags(product);
 
-      if (product.price) {
-        const {regular, final} = product.price;
+      if (product.priceRange) {
+        const {regular, final} = product.priceRange;
         console.log("regular " + regular.amount.value);
         console.log("final " + final.amount.value);
       }
@@ -255,8 +255,8 @@ export default async function decorate(block) {
         value: '1.00',
         currency: 'USD'
       });
-      console.log("track" + product.sku);
-      console.log("track2" + JSON.stringify(product));
+      console.log("track " + product.sku);
+      console.log("track2 " + JSON.stringify(product));
     }
   }, { eager: true });
 
@@ -276,6 +276,7 @@ async function setJsonLdProduct(product) {
     attributes,
   } = product;
   const amount = priceRange?.minimum?.final?.amount || price?.final?.amount;
+  console.log("amount " + amount);
   const brand = attributes.find((attr) => attr.name === 'brand');
 
   // get variants
