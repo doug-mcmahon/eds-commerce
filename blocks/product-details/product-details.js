@@ -57,14 +57,6 @@ export default async function decorate(block) {
         <div class="product-details__attributes"></div>
       </div>
     </div>
-    <script>
-    fbq('track', 'ViewContent', {
-        content_type: 'product',
-        content_ids: [product.sku],
-        value: product.prices.final.amount,
-        currency: product.prices.final.currency
-      });
-</script>
   `);
 
   const $alert = fragment.querySelector('.product-details__alert');
@@ -257,12 +249,20 @@ export default async function decorate(block) {
       }
 
       document.title = product.name;
-      fbq('track', 'ViewContent', {
-        content_type: 'product',
-        content_ids: [product.sku],
-        value: product.prices.final.amount,
-        currency: product.prices.final.currency
-      });
+
+      const viewContent = "fbq('track', 'ViewContent', {content_type: 'product', content_ids: ["+product.sku+"], " +
+        "value: " + product.prices.final.amount + ", currency: " + product.prices.final.currency + "});"
+
+      createScriptTag(
+        viewContent,
+        () => {
+          console.log('Script loaded successfully');
+        },
+        () => {
+          console.error('Error loading script');
+        }
+      );
+
     }
   }, { eager: true });
 
@@ -396,4 +396,21 @@ function setMetaTags(product) {
   createMetaTag('og:image:secure_url', metaImage, 'property');
   createMetaTag('product:price:amount', price.value, 'property');
   createMetaTag('product:price:currency', price.currency, 'property');
+}
+
+function createScriptTag(textContent, onload, onerror) {
+  const script = document.createElement('script');
+  script.textContent = textContent;
+  script.type = 'text/javascript';
+  script.async = false; // To ensure scripts are executed in order
+
+  if (onload) {
+    script.onload = onload;
+  }
+
+  if (onerror) {
+    script.onerror = onerror;
+  }
+
+  document.head.appendChild(script); // Or document.body, depending on your needs
 }
