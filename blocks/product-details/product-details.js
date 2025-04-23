@@ -250,7 +250,7 @@ export default async function decorate(block) {
 
       document.title = product.name;
 
-      const viewContent = "fbq('track', 'ViewContent', {content_type: 'product', content_ids: ["+product.sku+"], " +
+      const viewContent = "fbq('track', 'ViewContent', {content_type: 'product', content_ids: ['"+product.sku+"'], " +
         "value: " + product.prices.final.amount + ", currency: " + product.prices.final.currency + "});"
 
       createScriptTag(
