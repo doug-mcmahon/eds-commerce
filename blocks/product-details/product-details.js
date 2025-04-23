@@ -242,15 +242,16 @@ export default async function decorate(block) {
       setJsonLdProduct(product);
       setMetaTags(product);
 
+      const price = product.price;
       document.title = product.name;
       fbq('track', 'ViewContent', {
         content_type: 'product',
-        content_ids: ['1234'],
+        content_ids: [product.sku],
         value: '1.00',
         currency: 'USD'
       });
       console.log("track" + product.sku);
-      console.log("track2" + product.name);
+      console.log("track2" + product.price.value);
     }
   }, { eager: true });
 
