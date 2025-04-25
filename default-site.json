@@ -85,7 +85,7 @@
     "admin": {
       "role": {
         "config_admin": [
-          "{ADMIN_USER_EMAIL}"
+          "douglasmcmahon@rightpoint.com"
         ]
       },
       "requireAuth": "auto"
