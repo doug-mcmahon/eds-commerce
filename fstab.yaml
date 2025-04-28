@@ -1,8 +1,6 @@
 mountpoints:
     /:
-      url: "https://content.da.live/doug-mcmahon/eds-commerce/"
-      type: "markup"
-      suffix: ".html"
+      url: "https://drive.google.com/drive/folders/1k8yExxUTRcaJCrt_dbRX9cR_4KfCyXJ-"
 
 folders:
   /products/: /products/default
