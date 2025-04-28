@@ -1,7 +1,8 @@
 mountpoints:
     /:
-      url: https://content.da.live/doug-mcmahon/eds-commerce/
-      type: markup
+      url: "https://content.da.live/doug-mcmahon/eds-commerce/"
+      type: "markup"
+      suffix: ".html"
 
 folders:
   /products/: /products/default
