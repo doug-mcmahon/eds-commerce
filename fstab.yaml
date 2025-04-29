@@ -1,6 +1,6 @@
 mountpoints:
     /:
-      url: "https://drive.google.com/drive/folders/1k8yExxUTRcaJCrt_dbRX9cR_4KfCyXJ-"
+      url: "https://drive.google.com/drive/folders/11eLx1guEJiIYV4pQs7VbmH7s7E-cOupG"
 
 folders:
   /products/: /products/default
